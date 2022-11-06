@@ -2,8 +2,8 @@
 
 printf "%s" "Enter the file names you want to compare (ex: file1 file2): "
 read -r file1 file2
-uwu=$(find /home/$USER -iname "$file1")
-owo=$(find /home/$USER -iname "$file2")
+uwu=$(find $HOME -iname "$file1" | head -n 1)
+owo=$(find $HOME -iname "$file2" | head -n 1)
 compare=$(diff $uwu $owo)
 if [[ -z "$compare" ]]; then
     printf "%s\n" "Duplicate file found!"
